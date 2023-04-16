@@ -15,6 +15,7 @@ architecture structural of toplevel is
 	signal rd, rs, mux_in0, mux_out: std_logic_vector(15 downto 0);
 begin
 	mux_out <= mux_in0 when mux_sel = '0' else mux_in1;
+	ula_out <= rd;
 
 	ula: entity work.ula port map(
 		rd_out => rd,
