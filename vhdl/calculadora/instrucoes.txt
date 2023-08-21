@@ -1,0 +1,19 @@
+
+A lista de instruções implementadas é:
+
+b"00000000000000000"      NOP              -- no operation               PG. 191
+b"111_xxxxxxxxxxxxxx"     JP               -- jump incondicional para x  PG. 191
+b"001_ddd_sss_ttt_00000"  ADD D, S, T      -- D <= S + T                 PG. 187
+b"010_ddd_sss_ttt_00000"  SUB D, S, T      -- D <= S - T                 PG. 188
+b"011_ddd_iiiiiiiiiii"    LD D, i          -- D <= imediato              PG. 184
+b"100_ddd_sss_00000000"   LD D, S          -- D <= S                     PG. 185
+
+
+As páginas são conforme indexadas no pdf, e não as páginas escritas no documento.
+
+As instruções ADD e SUB foram modificadas para suportar 3 operandos.
+A codificação foi criada do zero e não foi levado em conta as limitações
+entre as combinações de registradores que cada instrução pode aceitar.
+ADD e SUB por exemplo, obrigatoriamente utilizam o acumulador na ISA original.
+O banco de registradores é o mesmo utilizado em uma prática anterior,
+não levando em conta os registradores do Rabbit 2000.

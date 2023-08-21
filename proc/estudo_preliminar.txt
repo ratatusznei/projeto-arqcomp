@@ -1,0 +1,133 @@
+							   Estudo Preliminar
+						  Arquitetura de computadores
+					   Professor: Juliano Mourão Vieira
+
+				  Aluno: Fernando Henrique Ratusznei Caetano
+					  Processador escolhido: Rabbit 2000
+
+								 Registradores
+								 =============
+
+O Rabbit 2000 possui seguinte conjunto principal de registradores de 8 bits:
+	A F
+	H L
+	B C
+	D E
+Pares de registradores na mesma linha podem ser combinados um um registrador
+de 16 bits, por exemplo o registrador de 16bits HL. O registrador A é um
+acumulador. O registrador F armazena as flags utilizadas em desvios
+condicionais. HL também é um acumulador. 
+
+Além dos oito registradores principais, também existem os registradores do
+conjunto alternativo, chamados de "Shadow Registers":
+	A' F'
+	H' L'
+	B' C'
+	D' E'
+Existe uma instrução que realiza a troca do conjunto sendo utilizado e nem
+todas as instruções tem acesso a esse conjunto. A função principal desses
+registradores alternativos parece ser para uso em interrupções sem "sujar" os
+registradores principais.
+
+Os seguintes registradores são de 16bits.
+	IX IY SP PC
+IX e IY são utilizados como índices, SP é o stack pointer e PC é o program
+counter.
+
+Também existem mais os seguintes registradores: XPC IP IIR EIR.
+XPC é utilizado para acesso extendido de memória.
+IP, IIR e EIR são utilizados para ativação e controle de prioridade de
+interrupções.
+
+O layout do registrador F é conforme a seguir: SZxx xVxC
+	S = sign
+	Z = zero
+	V = overflow
+	C = carry
+	x = bits não utilizados, é possível escrever e ler eles
+
+
+							 Instruções originais
+							 ====================
+
+Carga de constante: 
+	LD r, n    - r de 8bits = constante de 8bits n
+	LD IX, mn  - IX ou IY = constante de 16bits
+	LD dd, mn  - dd de 16bits = constante de 16bits
+	
+Cópia de valores entre registradores:
+	LD r, g    - r = g (8bits)
+	Existem instruções LD para operar nos registradores de 16bits também,
+	poréma existem limitações entre quais combinações podem ser utilizadas.
+
+Soma de dois valores:
+	Existem as instruções ADC (com carry) e ADD (sem carry), ambas possuem os
+	mesmos modos de endereçamento apresentados a serguir e operam apenas no
+	registrador acumulador A.
+
+	ADC A, (HL)    - A = A + indireto
+	ADC A, (IX+d)  - A = A + indexado
+	ADC A, n       - A = A + imediato
+	ADC A, r       - A = A + registrador de 8 bits
+
+	Também existem versões ADD e ADC para operam em registradores de 16bits sem
+	utilizar o A, porém existem limitações entre quais combinações podem ser
+	utilizadas.
+
+
+Subtração de dois valores:
+	Existem as instruções SBC (com carry), SUB (sem carry) e CP (comparação por
+	subtração), todas operam obrigatoriamente em A e possuem os seguintes
+	modos de endereçamento:
+
+	SUB (HL)   - A = A - indireto
+	SUB (IX+d) - A = A - indexado
+	SUB n      - A = A - imediato
+	SUB r      - A = A - registrador de 8 bits
+
+	(O manual não inclui A no mnemônico dessas instruções)
+	Apenas a SBC possui equivalente com registradores de 16bits, operando
+	obrigatóriamente em HL.
+
+	SBC HL, ss - HL = HL - conteúdo de ss - carry
+ 
+Desvio incondicional:
+	É utilizada a instrução JP, existem as seguintes variantes:
+	JP (HL) - PC = HL (não acessa a memória)
+	JP (IX) - PC = IX ou IY (novamente, não tem um acesso indireto)
+	JP mn   - PC = mn
+
+	Também existe a JR:
+	JR e    - PC = PC + e (Pode ser considerada como condicional também, pois
+	          não há salto quando e == 0)
+
+	Existem também as instrução CALL mn; e RET; que altera o PC e o SP.
+
+	Existem também as instruções LCALL, LJP e LRET; para acesso a memória extendida.
+
+
+Desvio condicional:
+	Existe uma variante da JP e a instrução DJNZ:
+	JP f,mn - Se f PC = mn (f é código de condição: NZ, NC, LZ, P, Z, C, LO, M)
+    DJNZ j  - Decrementa o registrador B, e se B != 0 então PC  = PC + j
+
+Instruções de acesso à memória:
+	Existem instruções para endereçamento imediato, indireto e indexado.
+
+	LD (mn), A   - Grava A no endereço imediato	
+	LD A, (mn)   - Carrega A com valor no endereço imediato
+	LD (HL), r   - Grava registrador de 8bits no endereço armazenado em HL
+	LD r, (HL)   - Carrega registrador de 8bits com valor armazenado no endereço
+	               indireto
+	LD (IX+d), r - Grava registrador de 8bits em endereço indexado
+	LD r, (IX+d) - Carrega registrador de 8bits por endereço indexado
+
+	Existem mais instruções LD para operação em registradores de 16bits e na
+	memória extendida. 
+	Existem instruções aritiméticas e lógicas que operam na memória como
+	apresentado nos tópicos anteriores.
+	Existem instruções para operação em bits individuais na memória e
+	movimentação de dados entre endereços na memória.
+	Existem também operações POP e PUSH para modificação da pilha.
+
+	

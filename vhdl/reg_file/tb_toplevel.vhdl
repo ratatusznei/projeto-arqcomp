@@ -1,6 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+-- ghdl -a reg_file.vhdl ula.vhdl toplevel.vhdl tb_toplevel.vhdl && ghdl -r tb_toplevel --vcd=- | grep -v warning | gtkwave -v
+
 entity tb_toplevel is
 end;
 

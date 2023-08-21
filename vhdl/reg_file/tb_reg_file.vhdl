@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- ghdl -a reg_file.vhdl && ghdl -a tb_reg_file.vhdl && ghdl -r tb_reg_file --vcd=- | gtkwave -v
+-- ghdl -a reg_file.vhdl tb_reg_file.vhdl && ghdl -r tb_reg_file --vcd=- | gtkwave -v
 
 entity tb_reg_file is
 end;
@@ -18,7 +18,7 @@ begin
 	);
 	process
 	begin
-		-- Inicializa resetando
+		-- reset
 		rst <= '1';
 		wait for 1 ns;
 		clk <= '1';
@@ -26,7 +26,7 @@ begin
 		wait for 1 ns;
 		clk <= '0';
 
-		-- Grava 1 no registrador 1
+		-- Grava 1 no registrador 1 0x0001
 		rd_sel <= "001";
 		rd <= x"0001";
 		we <= '0';
@@ -44,7 +44,7 @@ begin
 		wait for 1 ns;
 		clk <= '0';
 
-		-- Grava 65535 no registrador 7
+		-- Grava 0xffff no registrador 7
 		rd_sel <= "111";
 		rd <= x"FFFF";
 		we <= '0';
@@ -54,7 +54,7 @@ begin
 		wait for 1 ns;
 		clk <= '0';
 
-		-- Le registrador 15 pelo rt
+		-- Le registrador 7 pelo rt
 		rt_sel <= "111";
 		wait for 1 ns;
 		clk <= '1';
@@ -78,7 +78,7 @@ begin
 		clk <= '1';
 		wait for 1 ns;
 		clk <= '0';
-		
+
 		-- reseta
 		rst <= '1';
 		wait for 1 ns;

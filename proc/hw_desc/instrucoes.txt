@@ -1,0 +1,35 @@
+
+Símbolos no binário:
+ cc ∈ { 00 (NZ), 01 (NC), 10 (Z), 11 (C) }
+ . = tanto faz
+ rrr, ggg = registrador qualquer
+ HL = r1
+ i (10 vezes) = imediado de 10 bits com sinal e extendido
+
+
+A lista de instruções implementadas é:
+
+
+Formato NOP:
+	00 000  ............         NOP              -- no operation                PG. 191
+
+Formato JP:
+	01 000  ..iiiiiiiiii         JP imm           -- jump incondicional para imm PG. 191
+	01 001  ..iiiiiiiiii         JR imm           -- pc <= pc + imm              PG. 191
+	01 010  cciiiiiiiiii         JR cc, imm       -- pc <= pc + imm se flags cc  PG. 191  
+
+Formato ULA:
+	10 00  ..........rrr         ADD A, r         -- A <= A + T                  PG. 187
+	10 01  ..........rrr         SUB r            -- A <= A - T, modifica flags  PG. 188
+
+Formato LD:
+	11 00 rrr iiiiiiiiii         LD r, imm        -- r <= imediato               PG. 184
+	11 01 rrr .......ggg         LD r, g          -- r <= g                      PG. 185
+	11 10 rrr ..........         LD (HL), r       -- (HL) <= r                   PG. 185
+	11 11 rrr ..........         LD r, (HL)       -- r <= (HL)                   PG. 185
+
+
+As páginas são conforme indexadas no pdf, e não as páginas escritas no documento.
+
+O registrador A está mapeado para o R0, as instruções ULA sempre usam ele como
+uma das fontes e destino.

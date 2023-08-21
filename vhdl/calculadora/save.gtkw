@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.115 (w)1999-2023 BSI
+[*] Thu May 11 00:00:52 2023
+[*]
+[dumpfile] "/home/op/Aulas/arqcomp/vhdl/calculadora/a.ghw"
+[dumpfile_mtime] "Thu May 11 00:00:10 2023"
+[dumpfile_size] 13452
+[savefile] "/home/op/Aulas/arqcomp/vhdl/calculadora/save.gtkw"
+[timestart] 0
+[size] 1366 689
+[pos] -27 -24
+*-23.352507 6800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.processador_tb.
+[sst_width] 273
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 188
+@25
+#{top.processador_tb.estado[1:0]} top.processador_tb.estado[1] top.processador_tb.estado[0]
+@24
+#{top.processador_tb.pc[15:0]} top.processador_tb.pc[15] top.processador_tb.pc[14] top.processador_tb.pc[13] top.processador_tb.pc[12] top.processador_tb.pc[11] top.processador_tb.pc[10] top.processador_tb.pc[9] top.processador_tb.pc[8] top.processador_tb.pc[7] top.processador_tb.pc[6] top.processador_tb.pc[5] top.processador_tb.pc[4] top.processador_tb.pc[3] top.processador_tb.pc[2] top.processador_tb.pc[1] top.processador_tb.pc[0]
+@22
+#{top.processador_tb.instr_out[16:0]} top.processador_tb.instr_out[16] top.processador_tb.instr_out[15] top.processador_tb.instr_out[14] top.processador_tb.instr_out[13] top.processador_tb.instr_out[12] top.processador_tb.instr_out[11] top.processador_tb.instr_out[10] top.processador_tb.instr_out[9] top.processador_tb.instr_out[8] top.processador_tb.instr_out[7] top.processador_tb.instr_out[6] top.processador_tb.instr_out[5] top.processador_tb.instr_out[4] top.processador_tb.instr_out[3] top.processador_tb.instr_out[2] top.processador_tb.instr_out[1] top.processador_tb.instr_out[0]
+@24
+#{top.processador_tb.r1_out[15:0]} top.processador_tb.r1_out[15] top.processador_tb.r1_out[14] top.processador_tb.r1_out[13] top.processador_tb.r1_out[12] top.processador_tb.r1_out[11] top.processador_tb.r1_out[10] top.processador_tb.r1_out[9] top.processador_tb.r1_out[8] top.processador_tb.r1_out[7] top.processador_tb.r1_out[6] top.processador_tb.r1_out[5] top.processador_tb.r1_out[4] top.processador_tb.r1_out[3] top.processador_tb.r1_out[2] top.processador_tb.r1_out[1] top.processador_tb.r1_out[0]
+#{top.processador_tb.r2_out[15:0]} top.processador_tb.r2_out[15] top.processador_tb.r2_out[14] top.processador_tb.r2_out[13] top.processador_tb.r2_out[12] top.processador_tb.r2_out[11] top.processador_tb.r2_out[10] top.processador_tb.r2_out[9] top.processador_tb.r2_out[8] top.processador_tb.r2_out[7] top.processador_tb.r2_out[6] top.processador_tb.r2_out[5] top.processador_tb.r2_out[4] top.processador_tb.r2_out[3] top.processador_tb.r2_out[2] top.processador_tb.r2_out[1] top.processador_tb.r2_out[0]
+#{top.processador_tb.ula_out[15:0]} top.processador_tb.ula_out[15] top.processador_tb.ula_out[14] top.processador_tb.ula_out[13] top.processador_tb.ula_out[12] top.processador_tb.ula_out[11] top.processador_tb.ula_out[10] top.processador_tb.ula_out[9] top.processador_tb.ula_out[8] top.processador_tb.ula_out[7] top.processador_tb.ula_out[6] top.processador_tb.ula_out[5] top.processador_tb.ula_out[4] top.processador_tb.ula_out[3] top.processador_tb.ula_out[2] top.processador_tb.ula_out[1] top.processador_tb.ula_out[0]
+[pattern_trace] 1
+[pattern_trace] 0
